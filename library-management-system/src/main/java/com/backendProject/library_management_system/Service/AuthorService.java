@@ -5,6 +5,8 @@ import com.backendProject.library_management_system.Repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorService {
 
@@ -13,5 +15,10 @@ public class AuthorService {
     public void addAuthor(Author author)
     {
         authorRepository.save(author);
+    }
+
+    public List<Author> getAuthors()
+    {
+        return authorRepository.findAll();
     }
 }

@@ -1,6 +1,7 @@
 package com.backendProject.library_management_system.Entity;
 
 import com.backendProject.library_management_system.Enum.Genre;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +27,6 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
+     @JsonIgnore
     Author author;
 }

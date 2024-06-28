@@ -24,6 +24,7 @@ public class Student {
     private Department department;
     private String email;
 
-    @OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
-    Librarycard librarycard; // join Student class to Librarycard class
+    @OneToOne(mappedBy = "student",cascade = CascadeType.ALL) // All the crud operation perform in student class
+            // this should  perform with child class (card ) as well;
+    Librarycard card; // join Student class to Librarycard class
 }

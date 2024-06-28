@@ -18,8 +18,8 @@ import java.util.Date;
 public class Librarycard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int cardNo;
-    private Date validTill;
+    private int cardNo;
+    private String validTill;
     @Enumerated(EnumType.STRING)
     private CardStatus status;
 

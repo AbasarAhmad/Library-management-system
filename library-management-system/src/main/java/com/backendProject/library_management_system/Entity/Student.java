@@ -26,5 +26,7 @@ public class Student {
 
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL) // All the crud operation perform in student class
             // this should  perform with child class (card ) as well;
+            // mappedBY="student" ka mtlb hai ki maine child(librarycard) class mai Student ko student se mapped kiya hai
+            // agar student ke jagah xyz hota to ham mappedBy="xyz" likhte;
     Librarycard card; // join Student class to Librarycard class
 }

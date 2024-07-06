@@ -22,6 +22,8 @@ public class Student {
 
     @Enumerated(EnumType.STRING)
     private Department department;
+
+    @Column(unique = true) // Create email id unique
     private String email;
 
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL) // All the crud operation perform in student class

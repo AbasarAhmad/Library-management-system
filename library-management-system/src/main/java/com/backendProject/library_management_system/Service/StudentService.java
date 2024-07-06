@@ -25,4 +25,10 @@ public class StudentService {
 
         studentRepository.save(student);
     }
+
+    public String findByEmail(String email)
+    {
+        Student student=studentRepository.findByEmail(email); // Now The student is access whichs email id is
+        return student.getName();// Now we access the name of the student
+    }
 }

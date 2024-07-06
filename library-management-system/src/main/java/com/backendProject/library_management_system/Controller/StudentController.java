@@ -12,11 +12,19 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-
     @PostMapping("/add")
     public String addStudent(@RequestBody Student student)
     {
         studentService.addStudent(student);
         return "Student has been save";
     }
+    @GetMapping("/find_by_email")
+    public String findStudentByEmail(@RequestParam("email") String email)
+    {
+        return studentService.findByEmail(email);
+    }
+    // get student of perticular age
+
+
+    // try for some other attributes
 }

@@ -1,5 +1,7 @@
 package com.backendProject.library_management_system.Controller;
 
+import DTO.StudentResponseDto;
+import DTO.StudentUpdateEmailRequestDto;
 import com.backendProject.library_management_system.Entity.Student;
 import com.backendProject.library_management_system.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +29,10 @@ public class StudentController {
 
 
     // try for some other attributes
+
+    @PutMapping("/update_email")
+   public StudentResponseDto updateEmail(@RequestBody StudentUpdateEmailRequestDto studentUpdateEmailRequestDto)
+    {
+        return studentService.updateEmail(studentUpdateEmailRequestDto);
+    }
 }

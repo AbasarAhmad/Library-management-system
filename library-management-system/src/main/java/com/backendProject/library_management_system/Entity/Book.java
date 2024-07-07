@@ -27,6 +27,5 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
-     @JsonIgnore
     Author author;
 }

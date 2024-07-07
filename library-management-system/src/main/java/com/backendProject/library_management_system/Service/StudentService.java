@@ -1,5 +1,6 @@
 package com.backendProject.library_management_system.Service;
 
+import DTO.StudentRequestDto;
 import DTO.StudentResponseDto;
 import DTO.StudentUpdateEmailRequestDto;
 import com.backendProject.library_management_system.Entity.Librarycard;
@@ -14,18 +15,40 @@ public class StudentService {
 
     @Autowired
     StudentRepository studentRepository;
+/*
+//    public void addStudent(Student student){
+//        // set the value of card
+//        Librarycard card =new Librarycard();
+//        card.setStatus(CardStatus.ACTIVATE);
+//        card.setValidTill("03/2025");
+//        card.setStudent(student); // librarycard mai  jo student hai ye uske liye hai
+//        //set the card attribute in student
+//        student.setCard(card);   // Student class mai jo card hai ye usko set krta hai
+//        studentRepository.save(student);
+//    }
 
-    public void addStudent(Student student){
-        // set the value of card
-        Librarycard card =new Librarycard();
+ */
+    // We will do same above operation with the help of DTO Layer
+    public void addStudent(StudentRequestDto studentRequestDto){
+        // Create a Student object
+        Student student= new Student();
+        student.setAge(studentRequestDto.getAge());
+        student.setName(studentRequestDto.getName());
+        student.setDepartment(studentRequestDto.getDepartment());
+        student.setEmail(studentRequestDto.getEmail());
+
+        // create Librarycard object
+        Librarycard card= new Librarycard();
         card.setStatus(CardStatus.ACTIVATE);
-        card.setValidTill("03/2025");
-        card.setStudent(student); // librarycard mai  jo student hai ye uske liye hai
+        card.setStudent(student); // ye card mai current student ka id ko note krta hai
+        //cardNo, creationDate,upDation date , will be manage automatically and trancsaction and booksIssues are empty in starting so also managed
 
-        //set the card attribute in student
-        student.setCard(card);   // Student class mai jo card hai ye usko set krta hai
+        // set card in student
+        student.setCard(card);
 
+        //check
         studentRepository.save(student);
+
     }
 
     public String findByEmail(String email)

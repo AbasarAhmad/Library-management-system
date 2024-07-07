@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @NoArgsConstructor  // create default constructor
 @AllArgsConstructor // create parimetrize constructor
@@ -24,8 +27,19 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private Genre genre;
+    private boolean isIssued;
 
     @ManyToOne
     @JoinColumn
     Author author;
+
+    // Make book class , parent class of transaction class
+    @OneToMany(mappedBy = "book" ,cascade = CascadeType.ALL) // iska matlb mai ki child class mai "book" naame se map kiya gya hai Book clas ko
+            List<Transaction> transaction=new ArrayList<>();
+
+    // Book to Librarycard relation
+    @ManyToOne
+    @JoinColumn
+    Librarycard card;
+
 }

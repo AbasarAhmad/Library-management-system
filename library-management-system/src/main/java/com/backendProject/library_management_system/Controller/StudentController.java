@@ -1,5 +1,6 @@
 package com.backendProject.library_management_system.Controller;
 
+import DTO.StudentRequestDto;
 import DTO.StudentResponseDto;
 import DTO.StudentUpdateEmailRequestDto;
 import com.backendProject.library_management_system.Entity.Student;
@@ -15,9 +16,9 @@ public class StudentController {
     StudentService studentService;
 
     @PostMapping("/add")
-    public String addStudent(@RequestBody Student student)
+    public String addStudent(@RequestBody StudentRequestDto studentRequestDto)
     {
-        studentService.addStudent(student);
+        studentService.addStudent(studentRequestDto);
         return "Student has been save";
     }
     @GetMapping("/find_by_email")
